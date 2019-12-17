@@ -2,6 +2,20 @@
 <head>
 </head>
 <body>
+<button>Enable test mode</button><br><br>
+<script>
+document.querySelector("button").addEventListener("click", (e) => {
+    if (e.target.innerText === "Enable test mode") {
+        const style = document.createElement("style");
+        style.textContent = "answers{visibility:hidden;}question:hover+answers{visibility:visible;}";
+        document.head.appendChild(style);
+        e.target.innerText = "Disable test mode";
+    } else {
+        document.head.removeChild(document.head.querySelector("style"));
+        e.target.innerText = "Enable test mode";
+    }
+});
+</script>
 <question>
 Какие способы принято использовать для описания структуры системы?
 </question>
